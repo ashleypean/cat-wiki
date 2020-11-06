@@ -17,6 +17,7 @@ function App() {
       <MostSearched />
       <Article />
       <PhotoGrid />
+      <Footer />
     </div>
   );
 }
