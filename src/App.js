@@ -15,6 +15,8 @@ function App() {
       <Logo />
       <Header />
       <MostSearched />
+      <Article />
+      <PhotoGrid />
     </div>
   );
 }

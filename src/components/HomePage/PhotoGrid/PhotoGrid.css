@@ -1,0 +1,36 @@
+div.photo-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 19.5rem;
+}
+
+div.photo-grid div.column-1 {
+  width: 50%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+div.photo-grid div.column-2 {
+  width: 44%;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+div.photo-grid img.grid-image-1 {
+  width: 100%; 
+  align-self: flex-start;
+}
+
+div.photo-grid img.grid-image-2 {
+  height: 60%;
+  align-self: flex-end;
+} 
+
+div.photo-grid img.grid-image-3 {
+  height: 85%;
+}
