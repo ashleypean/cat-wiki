@@ -8,8 +8,8 @@ export default function MostSearched() {
       <h5>Most Searched Breeds</h5>
       <div className="line-break"></div>
       <h3>66+ Breeds For you to discover</h3>
-      <div className="yellow-backdrop"></div>
       <div className="article-images">
+      <div className="yellow-backdrop"></div>
       <div className="image-1">
         <img src={Placeholder} alt=""/>
         <p>Placeholder</p>
