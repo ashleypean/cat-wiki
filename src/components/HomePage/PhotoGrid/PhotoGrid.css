@@ -15,7 +15,7 @@ div.photo-grid div.column-1 {
 }
 
 div.photo-grid div.column-2 {
-  width: 44%;
+  width: 50%;
   margin: 0;
   display: flex;
   justify-content: flex-end;
@@ -32,5 +32,7 @@ div.photo-grid img.grid-image-2 {
 } 
 
 div.photo-grid img.grid-image-3 {
-  height: 85%;
+  width: 90%;
+  object-fit: contain;
+  align-self: flex-start
 }

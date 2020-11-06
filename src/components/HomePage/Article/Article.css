@@ -1,6 +1,6 @@
 div.article {
-  margin: 4rem 0 1.5rem;
-  height: 20rem;
+  margin: 4rem 0 5rem;
+  height: 62%;
 }
 
 div.article div.line-break {
@@ -26,7 +26,6 @@ div.article div.read-more {
   display: flex;
   height: 1.3em;
   cursor: pointer;
-  width: 30%;
 }
 
 div.article div.read-more p {
@@ -39,6 +38,6 @@ div.article div.read-more p {
 
 div.article div.read-more img {
   vertical-align: middle;
-  width: 17%;
+  width: 5%;
   margin: 0 0 0 .6rem;
 }
