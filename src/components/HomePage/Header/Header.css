@@ -2,7 +2,7 @@
 
 div.header {
   height: 10rem;
-  background: center / contain url('/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/header-sm.png') no-repeat;
+  background: center / cover url('/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/header-sm.png') no-repeat;
   border-radius: 40px 40px 0 0; 
   color: white;
 }
