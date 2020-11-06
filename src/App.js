@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <Logo />
       <Header />
-      <Article />
+      <MostSearched />
     </div>
   );
 }
