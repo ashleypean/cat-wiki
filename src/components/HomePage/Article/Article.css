@@ -41,3 +41,25 @@ div.article div.read-more img {
   width: 5%;
   margin: 0 0 0 .6rem;
 }
+
+@media screen and (min-width: 700px) {
+  div.article {
+    width: 40%;
+    max-width: 300px;
+    display: inline-block;
+    padding: 0 5% 0 10%;
+    vertical-align: middle;
+  }
+
+  div.article h2.article-title {
+    font-size: 2rem;
+  }
+
+  div.article p.article-subtitle {
+    font-size: .7rem;
+  }
+
+  div.article div.read-more {
+    margin: 2rem 0 0;
+  }
+}

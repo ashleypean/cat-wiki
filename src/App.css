@@ -5,3 +5,9 @@ div.App {
   font-family: 'Montserrat', sans-serif;
   color: #291507;
 }
+
+@media screen and (min-width: 700px) {
+  div.App {
+    padding: 0 3rem;
+  }
+}

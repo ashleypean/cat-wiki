@@ -36,3 +36,41 @@ div.photo-grid img.grid-image-3 {
   object-fit: contain;
   align-self: flex-start
 }
+
+@media screen and (min-width: 700px) {
+  div.photo-grid {
+    width: 45%;
+    height: 20rem;
+    display: inline-block;
+    margin: 5rem 0 2rem;
+    
+  }
+
+  div.photo-grid div.column-1 {
+    display: inline-flex;
+    vertical-align: middle;
+    width: 50%;
+    height: 100%;
+  }
+
+  div.photo-grid div.column-2 {
+    display: inline-flex;
+    vertical-align: middle;
+    width: 50%;
+    height: 100%;
+  }
+
+  div.photo-grid img.grid-image-1 {
+    width: 100%;
+  }
+
+  div.photo-grid img.grid-image-2 {
+    height: 65%;
+    object-position: right bottom;
+  }
+
+  div.photo-grid img.grid-image-3 {
+    width: 90%;
+    
+  }
+}

@@ -13,6 +13,10 @@ h4.title {
   padding: 1.5rem 2rem .5rem;
 }
 
+div.header img {
+  display: none;
+}
+
 p.subtitle {
   margin: 0;  
   padding: 0 2rem;
@@ -44,4 +48,46 @@ input[type="text"] {
   border: none;
   color: #291507;
   font-size: 74%;
+}
+
+@media screen and (min-width: 700px) {
+  div.header {
+    height: 18rem;
+    background: center / cover url('/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/header-md.png') no-repeat;
+    padding: 2rem 1.3rem;
+  }
+
+  div.header h4.title {
+    display: none;
+  }
+
+  div.header img {
+    display: block;
+    margin: 0;
+    width: 20%;
+    padding: 3rem 2rem .5rem;
+  }
+
+  div.header p {
+    font-size: .8rem;
+    width: 25%;
+  }
+
+  div.header div.search {
+    width: 20%;
+    height: 10%;
+    padding: 1rem 0;
+    position: relative;
+  }
+
+  div.header div.search input[type="text"]{
+  padding: .2rem 1rem;
+  }
+
+  div.header div.search img {
+    position: absolute;
+    top: -30%;
+    left: 82%;
+    width: .8rem;
+  }
 }
