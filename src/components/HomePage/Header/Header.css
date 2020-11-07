@@ -91,3 +91,18 @@ input[type="text"] {
     width: .8rem;
   }
 }
+
+@media screen and (min-width: 1000px) {
+  div.header {
+    height: 25rem;
+    max-width: 1000px;
+    background: center / cover url('/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/header-lg.png') no-repeat;
+  }
+
+  div.header div.search img{
+    position: absolute;
+    top: -20%;
+    left: 82%;
+    width: .8rem;
+  }
+}

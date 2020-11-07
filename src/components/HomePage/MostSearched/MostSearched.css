@@ -1,6 +1,7 @@
 div.most-searched {
   background-color: #E3E1DC;
   height: 30rem;
+  max-width: 945px;
   border-radius: 0 0 40px 40px;
   padding: 1rem;
 }
@@ -95,9 +96,5 @@ div.most-searched div.article-images div img {
 
   div.most-searched div.article-images div {
     flex-basis: 25%;
-  }
-
-  div.most-searched div.article-images div img {
-
   }
 }
