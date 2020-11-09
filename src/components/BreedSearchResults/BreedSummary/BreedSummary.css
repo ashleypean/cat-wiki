@@ -1,19 +1,43 @@
 div.breed-summary {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
-  margin: 2rem 0;
+  margin: 2rem 0 1rem 0;
+}
+
+div.breed-summary div.photo-container {
+  width: 25%;
+  height: 25%;
+  position: relative;
+}
+
+/* Add yellow border before image */
+div.breed-summary div.photo-container::before {
+  content: "";
+  background-color: #DEC68B;
+  position: absolute;
+  height: 75%;
+  border-radius: 12px;
+  width: 10%;
+  left: -5%;
+  z-index: -1;
+  top: 10%;
 }
 
 div.breed-summary img.photo {
-  width: 20%;
-  height: 20%;
+  width: 100%;
+  height: 100%;
   border-radius: 12px;
   object-fit: scale-down;
 }
 
 div.breed-summary div.right {
   width: 70%;
+  max-width: 500px;
+}
+
+div.breed-summary div.text {
+  margin: 0 0 1.4rem 0;
 }
 
 div.breed-summary div.text h4 {
@@ -26,6 +50,10 @@ div.breed-summary div.text h4 {
 div.breed-summary div.text p {
   font-size: .6rem;
   font-weight: 450;
+}
+
+div.breed-summary div.stats {
+  max-width: 300px;
 }
 
 /* Adjust font size of */
@@ -42,22 +70,30 @@ div.breed-summary div.stats span{
 div.rating {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 100%;
+  margin: 1rem 0;
 }
 
 /* Style the text so it is smaller and has the right boldness set*/
 div.rating span.stat {
   font-weight: 450;
   font-size: .6rem;
+  width: 30%;
+}
+
+div.breed-summary div.stats div.rating-container {
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Styling the stat/rating divs*/
-div.breed-summary div.stats div.brown-bg {
+div.breed-summary div.stats div.rating-container div.brown-bg {
   display: inline-block;
-  height: .3rem; 
-  width: 1.5rem; 
+  height: .45rem; 
+  width: 2rem; 
   background-color: #544439;
-  border-radius: 48px;
+  border-radius: 12px;
   margin: 0 .2rem;
 }
 

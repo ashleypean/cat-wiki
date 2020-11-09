@@ -3,6 +3,9 @@ import Placeholder from '/Users/ashley/Library/Mobile Documents/com~apple~CloudD
 
 export default function Photo() {
   return (
-    <img src={Placeholder} alt="Placeholder" className="photo"/>
+    <div className="photo-container">
+      <img src={Placeholder} alt="Placeholder" className="photo"/>
+    </div>
+
   )
 }
