@@ -1,0 +1,17 @@
+div.other-photos h3 {
+  margin: 3rem 0 1rem .8rem;
+}
+
+div.other-photos div.photos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+div.other-photos div.photos img {
+  width: 20%;
+  margin: .5rem;
+  border-radius: 12px;
+}

@@ -1,23 +1,21 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
-import {ReactComponent as Logo} from './img/logo.svg'
-import Header from './components/HomePage/Header/Header.jsx'
-import Article from './components/HomePage/Article/Article.jsx'
-import Footer from './components/HomePage/Footer/Footer.jsx'
-import MostSearched from './components/HomePage/MostSearched/MostSearched.jsx'
-import PhotoGrid from './components/HomePage/PhotoGrid/PhotoGrid.jsx'
+import HomePage from './components/HomePage/HomePage.js'
+import Top10 from './components/Top10Page/Top10.js'
+import SearchResults from './components/BreedSearchResults/SearchResults.js'
 
 function App() {
   return (
     <div className="App">
-      <Logo />
-      <Header />
-      <MostSearched />
-      <Article />
-      <PhotoGrid />
-      <Footer />
+      <Router>
+        <Switch>
+          <Route exact path="/" render={HomePage} />
+          <Route exact path="/top-10" render={Top10}/>
+          <Route path="/search" render={SearchResults}/>
+        </Switch>
+      </Router>
+      
     </div>
   );
 }

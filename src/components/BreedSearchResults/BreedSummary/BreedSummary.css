@@ -1,0 +1,13 @@
+div.breed-summary {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.breed-summary img.photo {
+  height: 8rem;
+  width: 8rem;
+}
+
+div.breed-summary {
+  
+}
