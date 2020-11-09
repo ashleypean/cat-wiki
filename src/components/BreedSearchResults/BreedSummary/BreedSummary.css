@@ -1,13 +1,66 @@
 div.breed-summary {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  margin: 2rem 0;
 }
 
 div.breed-summary img.photo {
-  height: 8rem;
-  width: 8rem;
+  width: 20%;
+  height: 20%;
+  border-radius: 12px;
+  object-fit: scale-down;
 }
 
-div.breed-summary {
-  
+div.breed-summary div.right {
+  width: 70%;
+}
+
+div.breed-summary div.text h4 {
+  font-weight: 525;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+/* Adjust font size of the summary paragraph*/
+div.breed-summary div.text p {
+  font-size: .6rem;
+  font-weight: 450;
+}
+
+/* Adjust font size of */
+div.breed-summary div.stats p {
+  font-size: .6rem;
+}
+
+/* Increase boldness of the stats category names*/
+div.breed-summary div.stats span{
+  font-weight: 600;
+}
+
+/* Set the rating div to flexbox to align the rating divs and the text */
+div.rating {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+/* Style the text so it is smaller and has the right boldness set*/
+div.rating span.stat {
+  font-weight: 450;
+  font-size: .6rem;
+}
+
+/* Styling the stat/rating divs*/
+div.breed-summary div.stats div.brown-bg {
+  display: inline-block;
+  height: .3rem; 
+  width: 1.5rem; 
+  background-color: #544439;
+  border-radius: 48px;
+  margin: 0 .2rem;
+}
+
+div.breed-summary div.stats div.no-bg {
+  background-color: #E0E0E0;
 }
