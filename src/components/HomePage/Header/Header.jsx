@@ -1,9 +1,25 @@
-import React from 'react'
-import SearchIcon from '../../../img/search-icon.png'
+import React, {useState, useEffect} from 'react'
 import HeaderLogo from '/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/logo-white.svg'
 import './Header.css'
+import axios from 'axios'
 
 export default function Header() {
+  //Search bar options held in state 
+  const [searchOptions, setSearchOptions] = useState()
+
+  //Fetch search options from server
+  useEffect( () => {
+    (async function () {
+      const response = await fetch('http://localhost:3005')
+        .then(data => data.json())
+        .then(data => console.log(data))
+    })()
+    
+  }, [searchOptions])
+
+  const handleChange = (e) => {
+    
+  }
 
   return (
     <div className="header">
@@ -11,12 +27,11 @@ export default function Header() {
       <img src={HeaderLogo} alt=""/>
       <p className="subtitle">Get to know more about your cat breed</p>
       <div className="search">
-        <input type="text" name="search" id="search" autocomplete aria-autocomplete="list" aria-label="Search for a cat breed" placeholder="Search" aria-placeholder="Search breeds"/>
-        <datalist id="search">
-          <option value="Ice cream">Ice cream</option>
-          <option value="Hello">Hello</option>
-        </datalist>
-        <img src={SearchIcon} className="search" alt='Search icon'/>
+          <input type="text" name="search-bar" placeholder="Search" list="search-bar" onChange={handleChange}/>
+          <datalist id="search-bar" >
+            <option value="Ice ream"/>
+            <option value="2"></option>
+          </datalist>
       </div>
     </div>
   )
