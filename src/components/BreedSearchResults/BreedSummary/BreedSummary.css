@@ -93,10 +93,17 @@ div.breed-summary div.stats div.rating-container div.brown-bg {
   height: .45rem; 
   width: 2rem; 
   background-color: #544439;
+  border: 1px solid #544439;
   border-radius: 12px;
   margin: 0 .2rem;
 }
 
-div.breed-summary div.stats div.no-bg {
-  background-color: #E0E0E0;
+div.breed-summary div.stats div.rating-container div.no-bg {
+  display: inline-block;
+  height: .45rem; 
+  width: 2rem; 
+  background-color: white;
+  border: 1px solid #544439;
+  border-radius: 12px;
+  margin: 0 .2rem;
 }
