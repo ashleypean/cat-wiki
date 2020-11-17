@@ -17,37 +17,18 @@ app.use(function(req, res, next) {
 const PORT = 3005
 
 //BREED SEARCH RESULTS
-app.get('/breeds/search/:name', async (req, res, next) => {
-  //Parse the url to get the breedname
-   const breedName = req.params.name
-   try {   
-    // Send request to the CAT API for the specific breed
-    res.locals.breedInfo = await axios.get(`https://api.thecatapi.com/v1/breeds/search?q=${breedName}`)
-    next()
-  }catch(err) {console.log(err)}
-
-  
-  //Call second function to get the breed photos and add them to the response object
-}, async function (req, res, next) {
-    const breedInfo = res.locals.breedInfo
-    //Get breed ID from breedInfo object. Use breed ID to request photos from Cat API
-    const breedID = breedInfo.data[0].id
-    
-    try{
-      const photoObj = await axios.get(`https://api.thecatapi.com/v1/images/search?limit=9&breed_id=${breedID}`)
-
-      //Parse the obj to only retrive the photo URL's and store in an array
-      const photos = (photoObj.data.map(x=> x.url))
-      console.log(photos)
-
-      //Attach the photo array to the breedInfo obj
-      breedInfo.data[0].photos = photos
-      
-      //Send the updated object to user's view 
-      res.status(200).send(breedInfo.data)
-    }catch(err){console.log(err)}
+//Get breed info for specific cat that was searched
+app.get('/breeds/search/:name', async(req, res) => {
+  try {   
+    //Parse the url to get the breedname
+    const breedName = req.params.name
+    //Send a request to the CAT API and get the response object for the specific breed
+    //Send to frontend
+    res.status(200).send(`https://api.thecatapi.com/v1/breeds/search?q=${breedName}`)
+  }catch(err) {
+    console.log(err)
+  }
 })
-
 
 
 
