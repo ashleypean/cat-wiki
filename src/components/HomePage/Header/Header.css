@@ -31,17 +31,13 @@ div.search {
   margin: 1rem 2rem;
 }
 
-div.seach form {
-  height: 100%;
-  width: 100%;
-}
-
 img.search {
   height: .8rem;
   position: relative;
   top: -75%;
   left: 87%;
 }
+
 
 input[type="text"] {
   height: 100%;

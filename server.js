@@ -26,7 +26,6 @@ try {
   const options = {cors: 'no-cors'}
   let breedList = await axios.get('/breeds', options)
   res.status(200).send(breedList.data)
-  console.log('server!')
 }catch(err) {
   console.log(err)
 }
