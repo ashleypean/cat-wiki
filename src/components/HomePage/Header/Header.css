@@ -66,6 +66,11 @@ input::-webkit-calendar-picker-indicator {
 
 datalist {
   overflow: scroll;
+  height: 1rem;
+}
+
+datalist option {
+  height: 1rem;
 }
 
 @media screen and (min-width: 700px) {

@@ -3,19 +3,24 @@ import HeaderLogo from '/Users/ashley/Library/Mobile Documents/com~apple~CloudDo
 import './Header.css'
 import axios from 'axios'
 
+
 export default function Header() {
   //Search bar options held in state 
-  const [searchOptions, setSearchOptions] = useState()
+  const [searchOptions, setSearchOptions] = useState([])
 
   //Fetch search options from server
   useEffect( () => {
     (async function () {
-      const response = await fetch('http://localhost:3005')
-        .then(data => data.json())
-        .then(data => console.log(data))
+      //Fetch names from local server
+      await fetch('http://localhost:3005')
+        .then(res => res.json())
+        //Filter for names only and return to response
+        .then(data => data.map(x => x.name))
+        //Set the search options state with array of names
+        .then(names => setSearchOptions(names))
     })()
     
-  }, [searchOptions])
+  }, [])
 
   const handleChange = (e) => {
     
@@ -29,8 +34,7 @@ export default function Header() {
       <div className="search">
           <input type="text" name="search-bar" placeholder="Search" list="search-bar" onChange={handleChange}/>
           <datalist id="search-bar" >
-            <option value="Ice ream"/>
-            <option value="2"></option>
+              {searchOptions.map((name, i) => <option value={name} key={i}/>)}
           </datalist>
       </div>
     </div>
