@@ -12,7 +12,7 @@ export default function BreedSummary() {
 
   //State variable will store all values that appear on page dynamically
   const [breedInfo, setBreedInfo] = useState({
-    photos: [Placeholder, Placeholder, Placeholder, Placeholder, Placeholder, Placeholder, Placeholder, Placeholder], 
+    photos: [Placeholder, Placeholder, Placeholder, Placeholder, Placeholder, Placeholder, Placeholder], 
     name: '', 
     description: '', 
     temperament: '', 
