@@ -43,6 +43,7 @@ app.get('/breeds/search/:name', async(req, res, next) => {
     const photos = photoObj.data.map(obj => obj.url)
     
     //Append the photos to the breedInfo obj
+    //First photo will be the main, all other photos will go in the 'other photos' component
     breedInfo.photos = photos
 
     //Send entire breedInfo object back 
