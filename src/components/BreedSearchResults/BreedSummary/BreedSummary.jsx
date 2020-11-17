@@ -8,7 +8,7 @@ import Placeholder from '/Users/ashley/Library/Mobile Documents/com~apple~CloudD
 
 export default function BreedSummary() {
   //Store url name parameter. Will use on line 30 to fetch from local server
-  const { name } = useParams()
+  const { breedName } = useParams()
 
   //State variable will store all values that appear on page dynamically
   const [breedInfo, setBreedInfo] = useState({
@@ -30,7 +30,7 @@ export default function BreedSummary() {
 
   //Fetch breed info from the server on page load
   useEffect(() => {
-    fetch(`http://localhost:3000/breeds/search/${name}`)
+    fetch(`http://localhost:3000/breeds/search/${breedName}`)
     .then(res => res.json())
     .then(data => setBreedInfo(data))
   }, [])
@@ -40,7 +40,7 @@ export default function BreedSummary() {
     <div className="breed-summary">
       <Photo photo={breedInfo.photos}/>
       <div className="right">
-        <Text name={name} description={breedInfo.description}/>
+        <Text name={breedName} description={breedInfo.description}/>
         <Stats stats={breedInfo}/>
       </div>
     </div>

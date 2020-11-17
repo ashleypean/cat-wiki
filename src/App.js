@@ -12,7 +12,7 @@ function App() {
         <Switch>
           <Route exact path="/" render={HomePage} />
           <Route exact path="/top-10" render={Top10}/>
-          <Route path="/search" render={SearchResults}/>
+          <Route path="/breeds/search/:breedName" render={SearchResults}/>
         </Switch>
       </Router>
       
