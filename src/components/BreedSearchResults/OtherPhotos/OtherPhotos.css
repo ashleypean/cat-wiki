@@ -12,6 +12,7 @@ div.other-photos div.photos {
 
 div.other-photos div.photos img {
   width: 20%;
+  object-fit: cover;
   margin: .5rem;
   border-radius: 12px;
 }
