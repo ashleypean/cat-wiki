@@ -20,7 +20,7 @@
     "dev": "run-p server start"
   },
 
-  "proxy": "http://localhost:5000",
+  "proxy": "http://localhost:3001",
 
   "eslintConfig": {
     "extends": [
