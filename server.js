@@ -102,6 +102,7 @@ app.get('/breeds/search/:name', async(req, res, next) => {
 
 
 
+
 //HOME PAGE
 //Get list of all cat breeds 
 app.get('/', async function (req, res, next){
@@ -120,36 +121,25 @@ async function(req, res) {
   const id = ['beng', 'sava', 'norw', 'srex']
   const fetchString = 'https://api.thecatapi.com/v1/images/search?limit=1&breed_id='
 
-  const bengResponse = await axios.get(fetchString + id[0])
-  const beng = {
-    url: bengResponse.data[0].url,
-    name: bengResponse.data[0].breeds[0].name
+  const top4 = []
+
+  for(let i = 0; i < id.length; i++) {
+    const r = await axios.get(fetchString + id[i])
+
+    const obj = {
+      url: r.data[0].url, 
+      name: r.data[0].breeds[0].name,
+    }
+
+    top4.push(obj)
   }
 
-  const savaResponse = await axios.get(fetchString + id[1])
-  const sava = {
-    url: savaResponse.data[0].url,
-    name: bengResponse.data[0].breeds[0].name
-  }
-
-  const norwResponse = await axios.get(fetchString + id[2])
-  const norw = {
-    url: norwResponse.data[0].url, 
-    name: norwResponse.data[0].breeds[0].name
-  }
-
-  const srexResponse = await axios.get(fetchString + id[3])
-  const srex = {
-    url: srexResponse.data[0].url,
-    name: norwResponse.data[0].breeds[0].name
-  }
-
-  //Store in object to return as response to frontend
-  const top4 = {beng, sava, norw, srex}
-
-  // res.status(200).send(bengResponse.beng[0].breeds[0].name)
-  res.send({top4, names})
+  //Send back the names and the top4 cats 
+  res.status(200).send({top4, names})
 })
+
+
+
 
 
 app.listen(PORT, () => {
