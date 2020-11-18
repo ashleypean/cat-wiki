@@ -55,13 +55,16 @@ app.get('/breeds/search/:name', async(req, res, next) => {
 
 //HOME PAGE
 //Get list of all cat breeds 
-app.get('/', async(req, res) => {
+app.get('/', async(req, res, next) => {
   try {
-     const breedList = await axios.get('https://api.thecatapi.com/v1/breeds')
-    res.status(200).send(breedList.data)
-  }catch(err) {
-    console.log(err)
-  }
+    const res = await axios.get('https://api.thecatapi.com/v1/breeds')
+
+    const breedList = res.data
+    const names = res.data.map(breed => breed.name)
+    const top10 = res.data.filter(breed => breed.adaptability === 5 && breed.intelligence === 5).splice(0,10)
+
+    res.status(200).send({breedList, names, top10})
+  }catch(err) {console.log(err)}
 })
 
 
