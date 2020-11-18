@@ -5,31 +5,30 @@ import HomePage from './components/HomePage/HomePage.js'
 import Top10 from './components/Top10Page/Top10.js'
 import SearchResults from './components/BreedSearchResults/SearchResults.js'
 
-function App() {
-  const [top10, setTop10] = useState('')
+export default function App() {
+  const [top4, setTop4] = useState()
+  const [top10, setTop10] = useState()
+  const [breedNames, setBreedNames] = useState()
 
   //Get top 10 cats from server
-  //Serach by adaptability and stragner friendliness
+  //Serach by adaptability and stranger friendliness
   useEffect(() => {
-    (async function () {
-      await fetch('http://localhost:3001/')
-        .then(res => res.json())
-        .then(data => {
-          let bestCats = data.filter(x => x.adaptability === 5 && x.stranger_friendly === 5).splice(0,10)
-          setTop10(bestCats)
-        })
-    })()
-
-    
-  }, [])
+    fetch('http://localhost:3001/')
+      .then(res => res.json())
+      .then(data => {
+        setBreedNames(data.names)
+        setTop10(data.top10)
+        setTop4(data.top10.splice(0, 4))
+      })
+}, [])
 
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/" render={HomePage} top10={top10} />
-          <Route exact path="/top-10" top10={top10} render={Top10}/>
-          <Route path="/breeds/search/:breedName" render={SearchResults}/>
+          <Route exact path="/" names={breedNames} top4={top4} render={HomePage} />
+          <Route exact path="/top-10" top10={top10}render={Top10}/>
+          <Route path="/breeds/search/:breedName" render={SearchResults} />
         </Switch>
       </Router>
       
@@ -37,4 +36,3 @@ function App() {
   );
 }
 
-export default App;

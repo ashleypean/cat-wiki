@@ -1,10 +1,10 @@
-require('dotenv').config()
-
 const express = require('express')
 const axios = require('axios')
+require('dotenv').config()
 
 const app = express()
 
+const PORT = 3001
 
 //Default AXIOS settings - Alllow cors and enable API key
 app.use(function(req, res, next) {
@@ -13,8 +13,6 @@ app.use(function(req, res, next) {
   res.header('x-api-key', process.env.API_KEY)
   next();
 });
-
-const PORT = 3001
 
 //BREED SEARCH RESULTS
 //Get breed info for specific cat that was searched
@@ -55,15 +53,14 @@ app.get('/breeds/search/:name', async(req, res, next) => {
 
 //HOME PAGE
 //Get list of all cat breeds 
-app.get('/', async(req, res, next) => {
+app.get('/', async function (req, res){
   try {
-    const res = await axios.get('https://api.thecatapi.com/v1/breeds')
+    const response = await axios.get('https://api.thecatapi.com/v1/breeds')
 
-    const breedList = res.data
-    const names = res.data.map(breed => breed.name)
-    const top10 = res.data.filter(breed => breed.adaptability === 5 && breed.intelligence === 5).splice(0,10)
+    const names = response.data.map(breed => breed.name)
+    const top10 = response.data.filter(breed => breed.adaptability === 5 && breed.intelligence === 5).splice(0,10)
 
-    res.status(200).send({breedList, names, top10})
+    res.status(200).send({names, top10})
   }catch(err) {console.log(err)}
 })
 
