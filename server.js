@@ -14,6 +14,9 @@ app.use(function(req, res, next) {
   next();
 });
 
+
+
+
 //TOP 10 PAGE
 app.get('/top-10', async(req, res) => {
   try {
@@ -40,6 +43,9 @@ app.get('/top-10', async(req, res) => {
   }catch(err){console.log(err)}
 })
 
+
+
+
 //BREED SEARCH RESULTS
 //Get breed info for specific cat that was searched
 app.get('/breeds/search/:name', async(req, res, next) => {
@@ -48,27 +54,46 @@ app.get('/breeds/search/:name', async(req, res, next) => {
     const breedName = req.params.name
     
     //Fetch breed info from CAT API and set as local variable 
-    const breedInfo = await axios.get(`https://api.thecatapi.com/v1/breeds/search?q=${breedName}`)
-    res.locals.breedInfo = breedInfo.data
+    const r = await axios.get(`https://api.thecatapi.com/v1/breeds/search?q=${breedName}`)
+
+    //Shorten the naming covention for getting data
+    const obj = r.data[0]
+    //Extract only the necessary data 
+    const breedInfo = {
+      photos: ['', ''], 
+      name: obj.name,
+      description: obj.description,
+      temperament: obj.temperament,
+      origin: obj.origin, 
+      life_span: obj.life_span, 
+      adaptability: obj.adaptability, 
+      affection_level: obj.affection_level, 
+      child_friendly: obj.child_friendly, 
+      grooming: obj.grooming, 
+      intelligence: obj.intelligence, 
+      health_issues: obj.health_issues, 
+      social_needs: obj.social_needs,
+      stranger_friendly: obj.stranger_friendly,
+      id: obj.id 
+    }
+    //Store breedInfo obj so it is available in the next middleware function
+    res.locals.breedInfo = breedInfo
 
     next()
   }catch(err) {console.log(err)}
 }, 
  async function(req, res) {
    //Store local breedInfo variable 
-  const breedInfo = res.locals.breedInfo[0]
+  const breedInfo = res.locals.breedInfo
   //Get breed ID in order to fetch photos
   const breedID = breedInfo.id
 
   try {
+    //Send request to Cat API for 8 photos maximum (MAY SEND LESS)
     const photoObj = await axios.get(`https://api.thecatapi.com/v1/images/search?limit=8&breed_id=${breedID}`)
 
-    //Extract photos from object and store into an array
-    const photos = photoObj.data.map(obj => obj.url)
-    
-    //Append the photos to the breedInfo obj
-    //First photo will be the main, all other photos will go in the 'other photos' component
-    breedInfo.photos = photos
+    //Extract photos from object and store into breedInfo obj
+    breedInfo.photos = photoObj.data.map(obj => obj.url)
 
     //Send entire breedInfo object back 
     res.status(200).send(breedInfo)
