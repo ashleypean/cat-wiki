@@ -53,15 +53,52 @@ app.get('/breeds/search/:name', async(req, res, next) => {
 
 //HOME PAGE
 //Get list of all cat breeds 
-app.get('/', async function (req, res){
+app.get('/', async function (req, res, next){
   try {
     const response = await axios.get('https://api.thecatapi.com/v1/breeds')
 
     const names = response.data.map(breed => breed.name)
-    const top10 = response.data.filter(breed => breed.adaptability === 5 && breed.intelligence === 5).splice(0,10)
-
-    res.status(200).send({names, top10})
+    res.locals.names = names
+    console.log('fetch 1')
+    next()
   }catch(err) {console.log(err)}
+}, 
+async function(req, res) {
+  const names = res.locals.names
+
+  //Get image url and name for Bengal(beng), Savannah(sava), Norweigan Forest Cat(norw), Selkirk Rex(srex)
+  const id = ['beng', 'sava', 'norw', 'srex']
+  const fetchString = 'https://api.thecatapi.com/v1/images/search?limit=1&breed_id='
+
+  const bengResponse = await axios.get(fetchString + id[0])
+  const beng = {
+    url: bengResponse.data[0].url,
+    name: bengResponse.data[0].breeds[0].name
+  }
+
+  const savaResponse = await axios.get(fetchString + id[1])
+  const sava = {
+    url: savaResponse.data[0].url,
+    name: bengResponse.data[0].breeds[0].name
+  }
+
+  const norwResponse = await axios.get(fetchString + id[2])
+  const norw = {
+    url: norwResponse.data[0].url, 
+    name: norwResponse.data[0].breeds[0].name
+  }
+
+  const srexResponse = await axios.get(fetchString + id[3])
+  const srex = {
+    url: srexResponse.data[0].url,
+    name: norwResponse.data[0].breeds[0].name
+  }
+
+  //Store in object to return as response to frontend
+  const top4 = {beng, sava, norw, srex}
+
+  // res.status(200).send(bengResponse.beng[0].breeds[0].name)
+  res.send({top4, names})
 })
 
 
