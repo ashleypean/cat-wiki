@@ -1,26 +1,17 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import HeaderLogo from '/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/logo-white.svg'
 import './Header.css'
 
 export default function Header() {
-  //Search bar options held in state 
-  const [searchOptions, setSearchOptions] = useState([''])
+  const [names, setNames] = useState(['', ''])
 
-  //Fetch search options from server
-  useEffect( () => {
-    (async function () {
-      await fetch('http://localhost:3005')
-        .then(data => data.json())
-        //Parse through response object and only return cat names
-        .then(data => data.map(cat => cat.name))
-        //Set search options state variable(line 7)
-        .then(names => setSearchOptions(names))
-        .then(names => console.log('done'))
-    })()
-    
+  useEffect(() => {
+    fetch('http://localhost:3001/')
+      .then(res => res.json())
+      .then(data => setNames(data.names))
   }, [])
 
-  return (
+  return (  
     <div className="header">
       <h4 className="title">CatWiki</h4>
       <img src={HeaderLogo} alt=""/>
@@ -28,8 +19,7 @@ export default function Header() {
       <div className="search">
           <input type="text" name="search-bar" placeholder="Search" list="search-bar"/>
           <datalist id="search-bar">
-            {/* Return list of cat names from useEffect hook (line10)*/}
-            {searchOptions.map((name, index) => <option value={name} key={index}/>)}
+            {names.map((name, index) => <option key={index} value={name}/>)}
           </datalist>
       </div>
     </div>

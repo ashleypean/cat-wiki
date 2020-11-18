@@ -6,18 +6,7 @@ import Top10 from './components/Top10Page/Top10.js'
 import SearchResults from './components/BreedSearchResults/SearchResults.js'
 
 export default function App() {
-  const [top4, setTop4] = useState()
-  const [breedNames, setBreedNames] = useState()
 
-  //Send request to server for cat names and top4 cats
-  useEffect(() => {
-    fetch('http://localhost:3001/')
-      .then(res => res.json())
-      .then(data => {
-        setBreedNames(data.names)
-        setTop4(data.top4)
-      })
-  }, [])
 
   return (
     <div className="App">
@@ -26,7 +15,7 @@ export default function App() {
           
           {/* HOME PAGE */}
           <Route exact path="/">
-            <HomePage names={breedNames} top4={top4}/>
+            <HomePage />
           </Route>
 
           {/* MOST SEARCHED BREEDS*/}
