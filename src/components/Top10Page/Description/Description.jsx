@@ -5,9 +5,9 @@ import './Description.css'
 
 export default function Description() {
   const [top10, setTop10] = useState([{
-    name: 'Bengal', 
-    url: Placeholder, 
-    description: 'This is a description'
+    name: '', 
+    url: '', 
+    description: ''
   }])
 
   const searchResult =(obj, i) => {
