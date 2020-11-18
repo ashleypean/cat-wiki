@@ -26,7 +26,9 @@ export default function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/" names={breedNames} top4={top4} render={HomePage} />
+          <Route exact path="/">
+            <HomePage names={breedNames} top4={top4}/>
+          </Route>
           <Route exact path="/top-10" top10={top10}render={Top10}/>
           <Route path="/breeds/search/:breedName" render={SearchResults} />
         </Switch>
