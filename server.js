@@ -20,10 +20,20 @@ app.get('/top-10', async(req, res) => {
     const fetchString = 'https://api.thecatapi.com/v1/images/search?limit=1&breed_id='
     const ids = ['beng', 'sava', 'norw', 'srex', 'jbob', 'rblu', 'soma','amis', 'mcoo', 'snow']
 
+    //Store the response in an iterable array 
     const response = []
+
+    //Loop over all breeds and fetch from the Cat API
     for(let i = 0; i < ids.length; i++) {
       const r = await axios.get(fetchString + ids[i])
-      response.push(r.data)
+
+      //Store the name, description, and url in a variable 
+      const name = r.data[0].breeds[0].name
+      const description = r.data[0].breeds[0].description
+      const url = r.data[0].url
+
+      //Return only the name, description, and url as a single object
+      response.push({name: name, description: description, url: url})
     }
     
     res.status(200).send(response)
