@@ -13,6 +13,7 @@ div.search-result img {
   width: 30%;
   height: 25%;
   max-width: 200px;
+  max-height: 200px;
   border-radius: 12px;
   display: inline;
   object-fit: cover;

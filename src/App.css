@@ -7,11 +7,6 @@ div.App {
   color: #291507;
 }
 
-div.homepage {
-  width: 100%;
-  height: 100%;
-}
-
 @media screen and (min-width: 700px) {
   div.App {
     padding: 0 10%;

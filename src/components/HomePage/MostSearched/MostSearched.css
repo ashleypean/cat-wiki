@@ -21,9 +21,27 @@ div.most-searched div.line-break {
   border-radius: 40px;
 }
 
-div.most-searched h3 {
- width: 60%;
- margin: 1rem;
+div.most-searched div.titles {
+  display: flex;
+  justify-content: space-between;
+  height: 8rem;
+  margin: 0 1rem 2rem;
+}
+
+div.most-searched div.titles h3 {
+ display: inline-block;
+}
+
+div.most-searched div.titles p {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 500;
+  align-self: flex-end;
+  cursor:pointer;
+}
+
+div.most-searched div.titles p img {
+  vertical-align: middle;
 }
 
 div.yellow-backdrop {
