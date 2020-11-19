@@ -1,6 +1,5 @@
-html, div#root, body {
-  height: 100%;
-  width: 100%;
+
+html, body, div#root {
   margin: 0; 
-  box-sizing: border-box;
+  padding: 0;
 }
