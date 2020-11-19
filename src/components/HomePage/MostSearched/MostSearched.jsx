@@ -31,7 +31,6 @@ export default function MostSearched(props) {
          </div>
        ))}
       </div>
-
     </div>
   )
 }

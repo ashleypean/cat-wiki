@@ -30,7 +30,7 @@ export default function BreedSummary() {
 
   //Fetch breed info from the server on page load
   useEffect(() => {
-    fetch(`http://localhost:3000/breeds/search/${breedName}`)
+    fetch(`http://localhost:3001/breeds/search/${breedName}`)
     .then(res => res.json())
     .then(data => setBreedInfo(data))
   }, [])
