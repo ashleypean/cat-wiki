@@ -23,7 +23,6 @@ export default function MostSearched(props) {
         <p onClick='/top-10'>SEE MORE <img src={Arrow} alt="See more"/></p>
       </div>
       <div className="article-images">
-      <div className="yellow-backdrop"></div>
        {top4.map((cat, i)=> (
          <div key={i} className={`image-${i+1}`}>
           <img src={cat.url} alt={cat.name}/>
