@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom'
 import Logo from '../../img/logo.svg'
 import BreedSummary from './BreedSummary/BreedSummary.jsx'
 import OtherPhotos from './OtherPhotos/OtherPhotos.jsx'
-import Footer from './Footer/Footer.jsx'
 
 
 export default function SearchResults() {
-
   return (
     <div className="search-results">
       <Link to="/">
@@ -16,7 +14,6 @@ export default function SearchResults() {
       </Link>
       <BreedSummary />
       <OtherPhotos />
-      <Footer />
     </div>
   )
 }
