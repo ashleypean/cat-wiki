@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 div.App {
-  padding: 0 7%;
+  padding: 0 5%;
   font-family: 'Montserrat', sans-serif;
   color: #291507;
 }
@@ -12,8 +12,14 @@ div.App {
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   div.App {
-    padding: 0 10%;
+    padding: 0 15%;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  div.App {
+    padding: 0 20%;
   }
 }

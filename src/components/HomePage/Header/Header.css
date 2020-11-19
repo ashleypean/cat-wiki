@@ -5,6 +5,7 @@ div.header {
   background: center / cover url('/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/header-sm.png') no-repeat;
   border-radius: 40px 40px 0 0; 
   color: white;
+  max-width: 90%;
 }
 
 h4.title {
@@ -74,6 +75,7 @@ datalist option {
     height: 18rem;
     background: center / cover url('/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/header-md.png') no-repeat;
     padding: 2rem 1.3rem;
+    max-width: 95%;
   }
 
   div.header h4.title {
