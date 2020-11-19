@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Header from './Header/Header.jsx'
 import Logo from '../../img/logo.svg'
 import Description from './Description/Description.jsx'
-import Footer from './Footer/Footer.jsx'
 
 function Top10() {
   return (
@@ -13,7 +12,6 @@ function Top10() {
       </Link>
       <Header />
       <Description />
-      <Footer />
     </div>
   );
 }
