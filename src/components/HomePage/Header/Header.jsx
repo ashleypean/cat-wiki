@@ -7,8 +7,8 @@ export default function Header() {
 
   useEffect(() => {
     fetch('http://localhost:3001/')
-      .then(res => res.json())
-      .then(data => setNames(data.names))
+    .then(res => res.json())
+    .then(res => setNames(res.names))
   }, [])
 
   return (  
