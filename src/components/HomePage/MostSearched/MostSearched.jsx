@@ -25,7 +25,7 @@ export default function MostSearched(props) {
       <div className="article-images">
        {top4.map((cat, i)=> (
          <div key={i} className={`image-${i+1}`}>
-          <img src={cat.url} alt={cat.name}/>
+           <img src={cat.url} alt={cat.name}/>
           <p>{cat.name}</p>
          </div>
        ))}
