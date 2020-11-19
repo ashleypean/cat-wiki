@@ -5,17 +5,14 @@ import Placeholder from '/Users/ashley/Library/Mobile Documents/com~apple~CloudD
 import Arrow from '/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/read-more-arrow.png'
 
 export default function MostSearched(props) {
-  const [top4, setTop4] = useState([Placeholder, Placeholder, Placeholder, Placeholder])
+  const [top4, setTop4] = useState([{url:Placeholder, name: ''}, {url:Placeholder, name: ''}, {url:Placeholder, name: ''}, {url:Placeholder, name: ''}])
 
-  //Import top 4 cats passed down from HomePage component
   useEffect(() => {
     fetch('http://localhost:3001/')
-    .then(res => res.json())
-    .then(data => setTop4(data.top4))
+      .then(res => res.json())
+      .then(data => setTop4(data.top4))
+      .then(top4.map(x => console.log(x)))
   }, [])
-
-
-  
 
   return (
     <div className="most-searched">
@@ -27,22 +24,12 @@ export default function MostSearched(props) {
       </div>
       <div className="article-images">
       <div className="yellow-backdrop"></div>
-      <div className="image-1">
-        <img src={top4[1]} alt=""/>
-        <p>Placeholder</p>
-      </div>
-      <div className="image-2">
-        <img src={Placeholder} alt=""/>
-        <p>Placeholder</p>
-      </div>
-      <div className="image-3">
-        <img src={Placeholder} alt=""/>
-        <p>Placeholder</p>
-      </div>
-      <div className="image-4">
-        <img src={Placeholder} alt=""/>
-        <p>Placeholder</p>
-      </div>
+       {top4.map((cat, i)=> (
+         <div key={i} className={`image-${i+1}`}>
+          <img src={cat.url} alt={cat.name}/>
+          <p>{cat.name}</p>
+         </div>
+       ))}
       </div>
 
     </div>
