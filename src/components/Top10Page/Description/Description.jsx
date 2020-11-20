@@ -26,7 +26,7 @@ export default function Description() {
         </div>
       </div>
     )
-  } 
+} 
 
   useEffect(() => {
     fetch('http://localhost:3001/top-10')
