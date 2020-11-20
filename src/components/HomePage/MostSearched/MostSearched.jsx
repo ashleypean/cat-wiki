@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Redirect } from 'react-router-dom' 
+import { Link } from 'react-router-dom' 
 import './MostSearched.css'
 import Placeholder from '/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/placeholder.jpg'
 import Arrow from '/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/read-more-arrow.png'
@@ -25,8 +25,11 @@ export default function MostSearched(props) {
       <div className="article-images">
        {top4.map((cat, i)=> (
          <div key={i} className={`image-${i+1}`}>
-           <img src={cat.url} alt={cat.name}/>
-          <p>{cat.name}</p>
+           <Link to={`/breeds/search/${cat.name}`}>
+            <img src={cat.url} alt={cat.name}/>
+            <p>{cat.name}</p>
+           </Link>
+           
          </div>
        ))}
       </div>

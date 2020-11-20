@@ -63,9 +63,18 @@ div.most-searched div.article-images div {
 div.most-searched div.article-images p {
   width: 90%;
   align-self: auto;
-  margin: 0 0 5rem;
+  margin: 1rem 0 5rem;
   font-weight: 600;
   font-size: .8rem;
+}
+
+div.most-searched div.article-images div a:hover {
+  text-shadow: 4px 1px 2px rgba(153, 150, 150, 1);
+}
+
+div.most-searched div.article-images div a {
+  text-decoration: none;
+  color: #4D270C;
 }
 
 div.most-searched div.article-images div img {
@@ -74,6 +83,11 @@ div.most-searched div.article-images div img {
   border-radius: 12px;
   z-index: 1;
   object-fit: cover;
+}
+
+div.most-searched div.article-images div img:hover {
+  box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  transform: scale(1.01)
 }
 
 div.most-searched div.article-images div img.image-1 {
