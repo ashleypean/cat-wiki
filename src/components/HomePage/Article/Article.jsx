@@ -11,8 +11,11 @@ export default function Article() {
       Having a cat around you can actually trigger the release of calming chemicals in your body which lower your stress and anxiety levels
       </p>
       <div className="read-more">
-        <p> READ MORE </p>
-        <img src={Arrow} alt='Click link to read more'/>
+        <a href="https://www.lifehack.org/285000/14-reasons-why-you-should-have-cat-home" target="_blank" rel="noopener noreferrer">
+          <p> READ MORE </p>
+          <img src={Arrow} alt='Click link to read more'/>
+        </a>
+
       </div>
 
     </div>

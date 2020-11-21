@@ -28,17 +28,28 @@ div.article div.read-more {
   cursor: pointer;
 }
 
+div.article div.read-more a {
+  width: 40%;
+  text-decoration: none;
+  color: #291507
+}
+
+div.article div.read-more a:hover {
+  text-decoration: underline;
+}
+
 div.article div.read-more p {
   margin: 0;
   font-size: .7rem;
   font-weight: 500;
   color: #291507;
   align-self: center;
+  display: inline;
 }
 
 div.article div.read-more img {
   vertical-align: middle;
-  width: 5%;
+  width: 15%;
   margin: 0 0 0 .6rem;
 }
 
