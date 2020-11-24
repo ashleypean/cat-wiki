@@ -108,7 +108,7 @@ app.get('/breeds/search/:name', async(req, res, next) => {
 app.get('/', async function (req, res, next){
   try {
     const response = await axios.get('https://api.thecatapi.com/v1/breeds')
-
+    
     const names = response.data.map(breed => breed.name)
     res.locals.names = names
     next()
@@ -138,10 +138,8 @@ async function(req, res) {
   res.status(200).send({top4, names})
 })
 
-
-
-
-
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`)
 })
+
+// module.exports = app
