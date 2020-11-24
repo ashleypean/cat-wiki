@@ -1,0 +1,36 @@
+div.not-found {
+  height: 95%;
+  background: #291507;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  border-radius: 16px;
+  margin: 5rem ;
+}
+
+div.not-found h1 {
+  color: white;
+  margin: 0;
+  text-align: center;
+}
+
+div.not-found img {
+  margin: 2rem 0;
+}
+
+div.not-found button {
+  background: white;
+  border: none;
+  color: black;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  outline: none;
+}
+
+div.not-found button:active {
+  background: #170a01;
+  color: white;
+}
