@@ -8,20 +8,25 @@ export default function Header() {
   useEffect(() => {
     fetch('http://localhost:3001/')
     .then(res => res.json())
-    .then(res => setNames(res.names))
+    .then(data => setNames(data.names))
   }, [])
+
+  const handleSelect = (e) => {
+    console.log(e.target)
+  } 
 
   return (  
     <div className="header">
-      <h4 className="title">CatWiki</h4>
-      <img src={HeaderLogo} alt=""/>
+      <img src={HeaderLogo} alt="" className="logo"/>
       <p className="subtitle">Get to know more about your cat breed</p>
-      <div className="search">
-          <input type="text" name="search-bar" placeholder="Search" list="search-bar"/>
-          <datalist id="search-bar">
-            {names.map((name, index) => <option key={index} value={name}/>)}
-          </datalist>
-      </div>
+        <form action="" className="search">
+          <input type="text" className="search" placeholder="Search" />
+          <div className="names-list">
+            <ul className="search">
+            {names.map((name, index) => <li key={index} onClick={handleSelect}>{name}</li>)}
+            </ul>
+          </div>
+        </form>
     </div>
   )
 }
