@@ -5,14 +5,13 @@ import Placeholder from '/Users/ashley/Library/Mobile Documents/com~apple~CloudD
 import Arrow from '/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/read-more-arrow.png'
 
 export default function MostSearched(props) {
-  const [top4, setTop4] = useState([{url:Placeholder, name: ''}, {url:Placeholder, name: ''}, {url:Placeholder, name: ''}, {url:Placeholder, name: ''}])
-
-  useEffect(() => {
-    fetch('http://localhost:3001/')
-      .then(res => res.json())
-      .then(data => setTop4(data.top4))
-      .then(top4.map(x => console.log(x)))
-  }, [])
+  console.log(props)
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/')
+  //     .then(res => res.json())
+  //     .then(data => setTop4(data.top4))
+  //     .then(setImagesLoaded(true))
+  // }, [])
 
   return (
     <div className="most-searched">
@@ -20,10 +19,12 @@ export default function MostSearched(props) {
       <div className="line-break"></div>
       <div className="titles">
         <h3>66+ Breeds For you to discover</h3>
-        <p onClick='/top-10'>SEE MORE <img src={Arrow} alt="See more"/></p>
+        <Link to="/top-10">
+         <p>SEE MORE <img src={Arrow} alt="See more"/></p>
+        </Link>
       </div>
       <div className="article-images">
-       {top4.map((cat, i)=> (
+       {props.top4.map((cat, i)=> (
          <div key={i} className={`image-${i+1}`}>
            <Link to={`/breeds/search/${cat.name}`}>
             <img src={cat.url} alt={cat.name}/>
