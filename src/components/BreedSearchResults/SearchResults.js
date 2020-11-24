@@ -5,7 +5,6 @@ import Logo from '../../img/logo.svg'
 import BreedSummary from './BreedSummary/BreedSummary.jsx'
 import OtherPhotos from './OtherPhotos/OtherPhotos.jsx'
 
-
 export default function SearchResults() {
   return (
     <div className="search-results">

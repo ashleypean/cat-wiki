@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import './404.css'
 import uhOh from '../../img/uhoh-cat.gif'
 

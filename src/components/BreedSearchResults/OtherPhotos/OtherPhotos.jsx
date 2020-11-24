@@ -3,10 +3,6 @@ import { useParams} from 'react-router-dom'
 import Placeholder from '/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/placeholder.jpg'
 import './OtherPhotos.css'
 
-const photo = (
-  <img src={Placeholder} alt="Placeholder"/>
-)
-
 export default function OtherPhotos(props) {
   const { breedName } = useParams()
   const [photos, setPhotos] = useState([Placeholder, Placeholder, Placeholder, Placeholder, Placeholder, Placeholder, Placeholder, Placeholder])
@@ -17,7 +13,6 @@ export default function OtherPhotos(props) {
     .then(res => res.json())
     //Remove the first photo. First photo will be set as main breed photo
     .then(data => setPhotos(data.photos.slice(1)))
-    console.log(photos)
   }, [])
 
   //Function will return photos only in multiples of 4 to preserve styling

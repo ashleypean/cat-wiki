@@ -24,20 +24,26 @@ div.most-searched div.line-break {
 div.most-searched div.titles {
   display: flex;
   justify-content: space-between;
-  height: 8rem;
-  margin: 0 1rem 2rem;
+  height: auto;
+  width: 90%;
+  margin: 0 1rem 3rem;
+  padding: 0 1rem;
 }
 
 div.most-searched div.titles h3 {
- display: inline-block;
+ display: inline;
+ font-size: 2rem;
+ width: 36%;
 }
 
-div.most-searched div.titles p {
-  display: inline-block;
+div.most-searched div.titles a {
+  display: inline;
   font-size: .7rem;
   font-weight: 500;
-  align-self: flex-end;
-  cursor:pointer;
+  align-self: center;
+  width: 15%;
+  text-decoration: none;
+  color: #4D270C;
 }
 
 div.most-searched div.titles p img {

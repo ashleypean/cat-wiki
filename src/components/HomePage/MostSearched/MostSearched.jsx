@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React  from 'react'
 import { Link } from 'react-router-dom' 
 import './MostSearched.css'
-import Placeholder from '/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/placeholder.jpg'
 import Arrow from '/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/read-more-arrow.png'
 
 export default function MostSearched(props) {
   console.log(props)
-  // useEffect(() => {
-  //   fetch('http://localhost:3001/')
-  //     .then(res => res.json())
-  //     .then(data => setTop4(data.top4))
-  //     .then(setImagesLoaded(true))
-  // }, [])
 
   return (
     <div className="most-searched">

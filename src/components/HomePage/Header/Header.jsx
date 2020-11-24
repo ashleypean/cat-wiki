@@ -13,7 +13,7 @@ export default function Header(props) {
   setTempNames(props.names)
   setConstNames(props.names)
   console.log(constNames)
- }, [props.names])
+ }, [props.names, constNames, tempNames])
 
 
   const handleSelect = (e) => {

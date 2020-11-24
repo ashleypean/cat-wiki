@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css'
 import HomePage from './components/HomePage/HomePage.js'
 import Top10 from './components/Top10Page/Top10.js'
 import SearchResults from './components/BreedSearchResults/SearchResults.js'
 import NotFound from './components/404/404'
-import Placeholder from '/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/placeholder.jpg'
 import Footer from './components/Footer/Footer.jsx'
 
 export default function App() {
