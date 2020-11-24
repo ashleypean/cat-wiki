@@ -4,7 +4,7 @@ div.App {
   padding: 0 5%;
   font-family: 'Montserrat', sans-serif;
   color: rgb(41, 21, 7);
-  height: 100%;
+  height: auto;
 }
 
 @media screen and (min-width: 700px) {
