@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import './App.css';
+import './App.css'
 import HomePage from './components/HomePage/HomePage.js'
 import Top10 from './components/Top10Page/Top10.js'
 import SearchResults from './components/BreedSearchResults/SearchResults.js'
+import NotFound from './components/404/404'
 import Placeholder from '/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/placeholder.jpg'
 import Footer from './components/Footer/Footer.jsx'
 
@@ -14,11 +15,12 @@ export default function App() {
       <Router>
         <Switch>      
           {/* HOME PAGE */}
-          <Route exact path="/" render={HomePage} />
+          <Route exact path="/" component={HomePage} />
           {/* MOST SEARCHED BREEDS*/}
-          <Route exact path="/top-10" render={Top10}/>
+          <Route exact path="/top-10" component={Top10}/>
           {/* SEARCH SPECIFIC BREED */ }
-          <Route path="/breeds/search/:breedName" render={SearchResults} />
+          <Route path="/breeds/search/:breedName" component={SearchResults} />
+          <Route component={NotFound}></Route>
         </Switch>
       </Router>
       <Footer />
