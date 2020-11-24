@@ -26,9 +26,17 @@ export default function Header() {
   const handleSubmit = (e) => {
     e.preventDefault()
     //Store user value in search bar
-    const userInput = document.querySelector('input.search').value
-    //Search for user selected breed
+    const userInput = document.querySelector('input.search').value.toLowerCase()
+    console.log(userInput)
+
+    //check if user input is valid name 
+    if(names.find(el => el.toLowerCase() === userInput)) {
+      //Search for user selected breed
     history.push(`/breeds/search/${userInput}`)
+    }else {
+      //else redirect to 404 not found page
+      history.push('/404')
+    }
   }
 
   //Change list items as user types
