@@ -13,8 +13,7 @@ export default function Header(props) {
  useEffect( () => {
   setTempNames(props.names)
   setConstNames(props.names)
-  console.log(constNames)
- }, [props.names, constNames, tempNames])
+ }, [props])
 
 
   const handleSelect = (e) => {
@@ -40,15 +39,16 @@ export default function Header(props) {
 
   //Change list items as user types
   const handleChange = (e) => {
+    e.preventDefault()
     const userInput = document.querySelector('input.search').value.toLowerCase()
-    
+    console.log(userInput)
     //When user begins to type generate a new list view with options that match user input
     generateNamesList(userInput)
   }
 
-  const generateNamesList = (userInput  = '') => {
-    if(userInput === '') {
-      return constNames
+  const generateNamesList = (userInput) => {
+    if(userInput === '' || !userInput) {
+      setTempNames(constNames)
     }else {
       setTempNames(constNames.filter(name => name.toLowerCase().startsWith(userInput)))
     }
