@@ -71,7 +71,7 @@ div.names-list::-webkit-scrollbar {
   display: none;
 }
 
-ul.search {
+ul.names-list {
   color: #291507;
   height: 7rem;
   overflow-y: scroll;
@@ -82,21 +82,27 @@ ul.search {
   padding: 0;
 }
 
-ul.search::-webkit-scrollbar {
+/* Use this to toggle the search dropdown open and closed*/
+div.hidden, ul.hidden {
+  display: none;
+}
+
+
+ul.names-list::-webkit-scrollbar {
   width: 5px;
 }
 
-ul.search::-webkit-scrollbar-track {
+ul.names-list::-webkit-scrollbar-track {
   background: #f2f2f2;
   border-radius: 16px;
 }
 
-ul.search::-webkit-scrollbar-thumb {
+ul.names-list::-webkit-scrollbar-thumb {
   background-color: #BDBDBD;
   border-radius: 12px;
 }
 
-ul.search li {
+ul.names-list li {
   font-size: .8rem;
   font-weight: 500;
   height: 2.5rem;
@@ -109,7 +115,7 @@ ul.search li {
   cursor:pointer;
 }
 
-ul.search li:hover {
+ul.names-list li:hover {
   background-color: rgba(151, 151, 151, 0.1);
   border-radius: 12px;
 }

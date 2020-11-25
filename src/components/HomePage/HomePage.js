@@ -7,7 +7,7 @@ import PhotoGrid from './PhotoGrid/PhotoGrid.jsx'
 import LoadingPage from '../Loading/Loading.jsx'
 
 export default function Homepage() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState([true, true])
   const [names, setNames] = useState(['', ''])
   const [top4, setTop4] = useState([{}])
 
@@ -23,14 +23,14 @@ export default function Homepage() {
         setTop4(data.top4)
         console.log('data: ', data.names)
       })
-      .then(setTimeout(() => setIsLoading(false), 3000))
+      .then(setTimeout(() => setIsLoading(false), 5000))
   }, [])
 
   return  isLoading? <LoadingPage />: (
     <div className="homepage" style={divStyle}>
       <Logo />
-      <Header names={names}/>
-      <MostSearched top4={top4}/>
+      <Header names={names} />
+      <MostSearched top4={top4} />
       <Article />
       <PhotoGrid />
     </div>

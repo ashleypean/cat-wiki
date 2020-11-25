@@ -6,6 +6,7 @@ import './Header.css'
 export default function Header(props) {
   const [tempNames, setTempNames] = useState(['', ''])
   const [constNames, setConstNames] = useState(['', ''])
+  // const [isOpen, setIsOpen] = useState(false)
   //Keep track of our browser history so we can redirect to search results
   const history = useHistory()
 
@@ -53,14 +54,39 @@ export default function Header(props) {
     }
   }
 
+  const handleFocus = () => {
+    //Store the input field, the div.names-list and ul.names-list elements
+    const input = document.querySelector('input.search')
+    const namesDiv  = document.querySelector('div.names-list')
+    const namesList = document.querySelector('ul.names-list')
+
+    //If input list is active, show the div and ul, if not - hide them
+    if(document.activeElement === input) {
+      namesDiv.classList.remove('hidden')
+      namesList.classList.remove('hidden')
+      
+    } else {
+      namesDiv.classList.add('hidden')
+      namesList.classList.add('hidden')
+    }
+    
+  }
+
   return (  
     <div className="header">
       <img src={HeaderLogo} alt="" className="logo"/>
       <p className="subtitle">Get to know more about your cat breed</p>
         <form action="" className="search" onSubmit={handleSubmit}>
-          <input type="text" className="search" onSubmit={handleSubmit} onChange={handleChange} placeholder="Search" />
-          <div className="names-list">
-            <ul className="search">
+          <input type="text" 
+          className="search" 
+          onSubmit={handleSubmit} 
+          onChange={handleChange} 
+          placeholder="Search" 
+          onFocus={handleFocus} 
+          onBlur={handleFocus}/>
+
+          <div className="names-list hidden">
+            <ul className="names-list hidden">
               {tempNames.map((name, index) => <li key={index} onClick={handleSelect}>{name}</li>)}
             </ul>
           </div>
