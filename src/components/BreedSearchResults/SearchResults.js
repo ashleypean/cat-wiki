@@ -1,18 +1,57 @@
 
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState, useEffect} from 'react'
+import { Link, useParams } from 'react-router-dom'
 import Logo from '../../img/logo.svg'
 import BreedSummary from './BreedSummary/BreedSummary.jsx'
 import OtherPhotos from './OtherPhotos/OtherPhotos.jsx'
+import LoadingPage from '../Loading/Loading.jsx'
 
 export default function SearchResults() {
-  return (
+  const [isLoading, setIsLoading] = useState(true)
+  const { breedName } = useParams()
+  const [photos, setPhotos] = useState(['', ''])
+  const [breedInfo, setBreedInfo] = useState({
+    photos: ['', ''], 
+    name: '', 
+    description: '', 
+    temperament: '', 
+    origin: '', 
+    life_span: '', 
+    adaptability: '', 
+    affection_level: '', 
+    child_friendly: '', 
+    grooming: '', 
+    intelligence: '', 
+    health_issues: '', 
+    social_needs: '', 
+    stranger_friendly: '', 
+  })
+
+  useEffect( () => {
+    fetch(`http://localhost:3000/breeds/search/${breedName}`)
+      .then(res => res.json())
+      .then(data => {
+        setBreedInfo(data)
+        //Remove the first photo. First photo will be set as main breed photo
+        const tempPhotos = data.photos.slice(1)
+        //Get the new length of the photos array 
+        const length = photos.length
+
+        //Only return photos in multiples of 4 so that all of the photos are even
+        const permPhotos = length >= 8? tempPhotos.slice(0, 8): tempPhotos.slice(0, 4)
+        setPhotos(permPhotos)
+      })
+      .then(setTimeout( () => {setIsLoading(false)}, 2000))
+      .then(console.log(breedInfo.photos))
+  }, [])
+
+  return isLoading? <LoadingPage />: (
     <div className="search-results">
       <Link to="/">
-        <img src={Logo} alt="Home Page" />
+        <img src={Logo} alt="Cat Wiki Logo. Click to go back to home page" />
       </Link>
-      <BreedSummary />
-      <OtherPhotos />
+      <BreedSummary breedInfo={breedInfo} breedName={breedName}/>
+      <OtherPhotos photos={photos} breedName={breedName}/>
     </div>
   )
 }
