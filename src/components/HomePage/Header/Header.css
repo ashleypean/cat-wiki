@@ -12,6 +12,7 @@ div.header {
 img.logo {
   padding: 1rem 2rem 0;
   width: 30%;
+  max-width: 225px;
 }
 
 p.subtitle {
@@ -19,6 +20,7 @@ p.subtitle {
   padding: 0 2rem;
   font-size: .6rem;
   width: 40%;
+  max-width: 225px;
 }
 
 form.search {
@@ -62,7 +64,7 @@ div.names-list {
   max-height: 150px;
   width: 50%;
   max-width: 200px;
-  border-radius: 16px;
+  border-radius: 24px;
   overflow-y: auto;
   margin: .5rem -1.5rem;
   padding: 0 1rem;
@@ -70,28 +72,26 @@ div.names-list {
   position: absolute;
 }
 
-
 div.names-list::-webkit-scrollbar {
-  width: 15px;
+  width: 22px;
 }
 
 div.names-list::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 10px 10px lightgray;
-  border: solid 3px transparent;
+  box-shadow: inset 0 0 14px 14px lightgray;
+  border: solid 8px transparent;
   border-radius: 16px;
 }
 
 div.names-list::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 10px 10px gray;
-  border: solid 3px transparent;
-  border-radius: 16px;
-  height: 15%;
+  border: solid 8px transparent;
+  border-radius: 40px;
+  height: 50%;
 }
 
 ul.names-list {
   color: #291507;
   height: 50%;
-  overflow-y: scroll;
   list-style: none;
   width: 100%;
   height: 90%;
@@ -123,60 +123,41 @@ ul.names-list li:hover {
 }
 
 
-
 @media screen and (min-width: 700px) {
   div.header {
-    height: 18rem;
+    height: auto;
     background: center / cover url('/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/header-md.png') no-repeat;
-    padding: 2rem 1.3rem;
-    max-width: 95%;
-  }
-
-  div.header h4.title {
-    display: none;
-  }
-
-  div.header img {
-    display: block;
-    margin: 0;
-    width: 20%;
+    padding: 3rem 2rem 2rem;
   }
 
   div.header p {
-    font-size: .8rem;
-    width: 25%;
+    font-size: 1rem;
+    padding: 1rem 2.1rem 1rem;
   }
 
-  div.header div.search {
-    width: 20%;
-    height: 10%;
-    padding: 1rem 0;
-    position: relative;
+  div.header form.search input[type="text"]{
+    padding: .8rem 1rem;
+    max-width: 135px;
   }
 
-  div.header div.search input[type="text"]{
-  padding: .2rem 1rem;
+  div.names-list {
+    margin: .5rem -.8rem;
+    max-width: 165px;
   }
 
-  div.header div.search img {
-    position: absolute;
-    top: -30%;
-    left: 82%;
-    width: .8rem;
-  }
 }
 
 @media screen and (min-width: 1000px) {
   div.header {
-    height: 25rem;
+    height: auto;
+    padding: 3rem 2rem 5rem 3rem;
     max-width: 1000px;
     background: center / cover url('/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/header-lg.png') no-repeat;
   }
+}
 
-  div.header div.search img{
-    position: absolute;
-    top: -20%;
-    left: 82%;
-    width: .8rem;
+@media screen and (min-width: 1200px) {
+  div.header { 
+    padding: 3rem 2rem 6rem 3rem;
   }
 }

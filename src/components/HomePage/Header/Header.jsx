@@ -41,7 +41,7 @@ export default function Header(props) {
   const handleChange = (e) => {
     e.preventDefault()
     const userInput = document.querySelector('input.search').value.toLowerCase()
-    console.log(userInput)
+    
     //When user begins to type generate a new list view with options that match user input
     generateNamesList(userInput)
   }
