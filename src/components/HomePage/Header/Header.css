@@ -1,24 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap');
 
 div.header {
-  height: 7rem;
+  height: auto;
   background: center / cover url('/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/header-sm.png') no-repeat;
   border-radius: 40px 40px 0 0; 
   color: white;
-  max-width: 90%;
-  padding: 1rem 3rem;
+  max-width: 95%;
+  padding: .5rem 0;
 }
 
 img.logo {
-  padding: 2rem 2rem 0;
+  padding: 1rem 2rem 0;
+  width: 30%;
 }
 
 p.subtitle {
   margin: 0;  
   padding: 0 2rem;
-  font-size: 10px;
+  font-size: .6rem;
   width: 40%;
+}
 
+form.search {
+  height: 90%;
+  width: 30%;
+  margin: 1rem 2rem;
 }
 
 img.search {
@@ -28,17 +34,11 @@ img.search {
   left: 87%;
 }
 
-form.search {
-  height: 80%;
-  width: 30%;
-  margin: 1rem 2rem;
-}
-
 input[type="text"] {
   position: relative;
   height: 15%;
-  width: calc(80% - 1rem);
-  padding: 0 1rem;
+  width: calc(80% + 1.5rem);
+  padding: .5rem;
   outline: none;
   background-color: white;
   border-radius: 24px;
@@ -58,22 +58,39 @@ input::-webkit-calendar-picker-indicator {
 
 div.names-list {
   background: white;
-  height: 60%;
-  width: 80%;
+  height: auto;
+  max-height: 150px;
+  width: 50%;
+  max-width: 200px;
   border-radius: 16px;
-  overflow-y:scroll;
-  margin: 1rem 0;
-  padding: 0 .5rem;
+  overflow-y: auto;
+  margin: .5rem -1.5rem;
+  padding: 0 1rem;
   z-index: 2;
+  position: absolute;
 }
 
+
 div.names-list::-webkit-scrollbar {
-  display: none;
+  width: 15px;
+}
+
+div.names-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 10px 10px lightgray;
+  border: solid 3px transparent;
+  border-radius: 16px;
+}
+
+div.names-list::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 10px 10px gray;
+  border: solid 3px transparent;
+  border-radius: 16px;
+  height: 15%;
 }
 
 ul.names-list {
   color: #291507;
-  height: 7rem;
+  height: 50%;
   overflow-y: scroll;
   list-style: none;
   width: 100%;
@@ -85,21 +102,6 @@ ul.names-list {
 /* Use this to toggle the search dropdown open and closed*/
 div.hidden, ul.hidden {
   display: none;
-}
-
-
-ul.names-list::-webkit-scrollbar {
-  width: 5px;
-}
-
-ul.names-list::-webkit-scrollbar-track {
-  background: #f2f2f2;
-  border-radius: 16px;
-}
-
-ul.names-list::-webkit-scrollbar-thumb {
-  background-color: #BDBDBD;
-  border-radius: 12px;
 }
 
 ul.names-list li {
