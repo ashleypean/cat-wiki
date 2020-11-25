@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import './Description.css'
 
 
-export default function Description() {
-  const [top10, setTop10] = useState([{
-    name: '', 
-    url: '', 
-    description: ''
-  }])
+export default function Description(props) {
 
   const searchResult =(obj, i) => {
     return (
@@ -27,15 +22,9 @@ export default function Description() {
     )
 } 
 
-  useEffect(() => {
-    fetch('http://localhost:3001/top-10')
-      .then(res => res.json())
-      .then(data => setTop10(data))
-  }, [])
-
   return (
     <div className="top-10-description">
-      {top10.map((obj, index) => {
+      {props.top10.map((obj, index) => {
         return searchResult(obj, index)
       })}
     </div>
