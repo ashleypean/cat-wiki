@@ -2,7 +2,7 @@ const app = require('./server.js')
 const request = require('supertest')
 
 describe("Run GET request", () => {
-  test("Should return object with list of names ", async () => {
+  test("Should return object with list of names", async () => {
     const response = await request(app).get("/")
     //Check if names array exists
     expect(response.body.names).toBeTruthy()
