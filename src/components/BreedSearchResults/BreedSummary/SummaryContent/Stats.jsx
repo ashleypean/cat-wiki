@@ -32,6 +32,8 @@ export default function Stats(props) {
         {stats.life_span + ' years'} 
       </p>
 
+      <br/>
+
       <div className="rating">
         <span className="stat">Adaptability: </span>
         <div className="rating-container">

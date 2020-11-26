@@ -33,12 +33,10 @@ export default function SearchResults() {
       .then(data => {
         setBreedInfo(data)
         //Remove the first photo. First photo will be set as main breed photo
-        const tempPhotos = data.photos.slice(1)
-        //Get the new length of the photos array 
-        const length = photos.length
-
+        data.photos.shift()
+    
         //Only return photos in multiples of 4 so that all of the photos are even
-        const permPhotos = length >= 8? tempPhotos.slice(0, 8): tempPhotos.slice(0, 4)
+        const permPhotos = data.photos
         setPhotos(permPhotos)
       })
       .then(setTimeout( () => {setIsLoading(false)}, 2000))
