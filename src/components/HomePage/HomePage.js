@@ -23,7 +23,7 @@ export default function Homepage() {
         setTop4(data.top4)
         console.log('data: ', data.names)
       })
-      .then(setTimeout(() => setIsLoading(false), 5000))
+      .then(setTimeout(() => setIsLoading(false), 1000))
   }, [])
 
   return  isLoading? <LoadingPage />: (

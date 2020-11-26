@@ -20,7 +20,7 @@ export default function Description(props) {
         </div>
       </div>
     )
-} 
+  } 
 
   return (
     <div className="top-10-description">

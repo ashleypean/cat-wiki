@@ -1,5 +1,9 @@
-html, body, div#root {
+html {
+  height: auto;
+}
+
+body, div#root {
   margin: 0; 
   padding: 0;
-  height: auto;
+  height: 100%;
 }

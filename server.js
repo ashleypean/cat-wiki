@@ -38,7 +38,7 @@ app.get('/top-10', async(req, res) => {
       //Return only the name, description, and url as a single object
       response.push({name: name, description: description, url: url})
     }
-    
+
     res.status(200).send(response)
   }catch(err){console.log(err)}
 })
