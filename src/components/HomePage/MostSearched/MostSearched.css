@@ -1,7 +1,7 @@
 div.most-searched {
   background-color: #E3E1DC;
   height: auto;
-  max-width: 84%;
+  max-width: calc(95% - 2rem);
   border-radius: 0 0 40px 40px;
   padding: 1rem 1rem 1rem;
 }
@@ -25,28 +25,33 @@ div.most-searched div.titles {
   display: flex;
   justify-content: space-between;
   height: auto;
-  width: 100%;
-  margin: 2rem 0.5rem 1rem;
-  padding: 0;
+  width: auto;
+  margin: .25rem 0.5rem 2rem;
+  padding: 1rem 0 0;
 }
 
 div.most-searched div.titles h3 {
  display: inline;
  font-size: .8rem;
- flex-basis: 50%;
+ flex-basis: 55%;
+ margin: 0;
 }
 
 div.most-searched div.titles a {
   display: inline;
   font-size: .7rem;
   font-weight: 500;
-  flex-basis: 45%;
   text-decoration: none;
   color: #4D270C;
   align-self: flex-end;
   justify-self: flex-end;
+  flex-basis: 45%;
   text-align: right;
   margin: 0 0.5rem 0 0;
+}
+
+div.most-searched div.titles a p {
+  margin: 0;
 }
 
 div.most-searched div.titles p img {
@@ -134,34 +139,36 @@ div.most-searched div.article-images div.image-1::after {
 
 @media screen and (min-width: 700px) {
   div.most-searched {
-    padding: 2rem 3rem 3rem;
-    max-width: calc(1000px - 3.4rem);
+    max-width: calc(95% + 2rem);
   }
 
-  div.most-searched h3 {
-    font-size: 2rem;
-    width: 45%;
-    padding: 1rem 0; 
+  div.most-searched h5 {
+    font-size: .8rem;
+    font-weight: 400;
+    margin: 0 2rem;
+  }
+
+  div.most-searched div.line-break {
+    margin: 0 2rem;
+  }
+
+  div.most-searched div.titles {
+    padding: 1.5rem 2rem 2rem;
+    margin: 0;
+  }
+
+  div.most-searched div.titles h3 {
+    font-size: 2.2rem;
+  }
+
+  div.most-searched div.titles a {
+    margin: 0;
+  }
+
+  div.most-searched div.article-images div {
+    width: 20%;
+    height: 18rem;
   }
 }
 
-@media screen and (min-width: 800px) {
-  div.most-searched div.article-images div img {
-    height: 12rem; 
-    width: 12rem;
-  }
-}
 
-@media screen and (min-width: 900px) {
-  div.most-searched div.article-images div img {
-    height: 14rem; 
-    width: 14rem;
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  div.most-searched div.article-images div img {
-    height: 20rem; 
-    width: 20rem;
-  }
-}

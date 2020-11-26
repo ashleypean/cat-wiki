@@ -4,7 +4,6 @@ import './MostSearched.css'
 import Arrow from '/Users/ashley/Library/Mobile Documents/com~apple~CloudDocs/Coding/Projects/cat-wiki/src/img/read-more-arrow.png'
 
 export default function MostSearched(props) {
-  console.log(props)
 
   return (
     <div className="most-searched">
