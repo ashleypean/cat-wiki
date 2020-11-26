@@ -23,7 +23,6 @@ export default function MostSearched(props) {
             <img src={cat.url} alt={cat.name}/>
             <p>{cat.name}</p>
            </Link>
-           
          </div>
        ))}
       </div>
