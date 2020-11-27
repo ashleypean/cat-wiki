@@ -19,7 +19,7 @@ export default function App() {
           <Route exact path="/top-10" component={Top10}/>
           {/* SEARCH SPECIFIC BREED */ }
           <Route path="/breeds/search/:breedName" component={SearchResults} />
-          <Route component={NotFound}></Route>
+          <Route component={NotFound} />
         </Switch>
       </Router>
       <Footer />
