@@ -14,7 +14,7 @@ function Top10() {
   }])
 
   useEffect(() => {
-    fetch('http://localhost:3001/top-10')
+    fetch('/top-10')
       .then(res => res.json())
       .then(data => setTop10(data))
       .then(setTimeout(() => {setIsLoading(false)}, 6000))
