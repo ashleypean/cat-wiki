@@ -84,9 +84,9 @@ export default function Header(props) {
           <div className="names-list hidden">
             <ul className="names-list hidden">
               {tempNames.map((name, index) => 
-                <li key={index}>
-                  <Link to={`/breeds/search/${name}`}>{name}</Link>
-                </li>
+                <Link to={`/breeds/search/${name}`}>
+                  <li key={index}> {name} </li>
+                </Link>
               )}
             </ul>
           </div>
