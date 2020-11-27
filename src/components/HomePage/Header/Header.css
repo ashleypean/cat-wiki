@@ -115,6 +115,12 @@ ul.names-list li {
   display: flex;
   align-items: center;
   cursor:pointer;
+  width: 100%;
+}
+
+ul.names-list a {
+  color: black;
+  text-decoration: none;
 }
 
 ul.names-list li:hover {
