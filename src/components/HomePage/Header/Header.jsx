@@ -25,7 +25,6 @@ export default function Header(props) {
     e.preventDefault()
     //Store user value in search bar
     const userInput = document.querySelector('input.search').value.toLowerCase()
-    console.log(userInput)
 
     //check if user input is valid name 
     if(constNames.find(el => el.toLowerCase() === userInput)) {

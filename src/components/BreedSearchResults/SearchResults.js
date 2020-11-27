@@ -33,7 +33,6 @@ export default function SearchResults() {
     fetch(`/breeds/search/${breedName}`)
       .then(res => res.json())
       .then(data => {
-        console.log('data: ', data)
         setBreedInfo(data)
         //Remove the first photo. First photo will be set as main breed photo
         data.photos.shift()
@@ -45,7 +44,6 @@ export default function SearchResults() {
       .then(setTimeout( () => {setIsLoading(false)}, 2000))
       .catch((err) => {
         console.log(err)
-        console.log('there was an error')
         setIsError(true)
       })
   }, [breedName])
