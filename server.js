@@ -79,7 +79,9 @@ app.get('/breeds/search/:name', async(req, res, next) => {
     res.locals.breedInfo = breedInfo
 
     next()
-  }catch(err) {console.log(err)}
+  }catch(err) {
+    console.log(err)
+  res.status(404).send(err.message)}
 }, 
  async function(req, res) {
    //Store local breedInfo variable 
