@@ -21,7 +21,6 @@ export default function Homepage() {
       .then(data => {
         setNames(data.names)
         setTop4(data.top4)
-        console.log('data: ', data.names)
       })
       .then(setTimeout(() => setIsLoading(false), 7000))
   }, [])
