@@ -1,5 +1,6 @@
 const express = require('express')
 const axios = require('axios')
+const path = require('path')
 require('dotenv').config()
 
 const app = express()
@@ -13,8 +14,6 @@ app.use(function(req, res, next) {
   res.header('x-api-key', process.env.API_KEY)
   next();
 });
-
-
 
 
 //TOP 10 PAGE
@@ -105,7 +104,7 @@ app.get('/breeds/search/:name', async(req, res, next) => {
 
 //HOME PAGE
 //Get list of all cat breeds 
-app.get('/', async function (req, res, next){
+app.get('/api', async function (req, res, next){
   try {
     const response = await axios.get('https://api.thecatapi.com/v1/breeds')
     
@@ -137,6 +136,15 @@ async function(req, res) {
   //Send back the names and the top4 cats 
   res.status(200).send({top4, names})
 })
+
+if(process.env.NODE_ENV === 'production') {
+  //Set static folder 
+  app.use(express.static('client/build'))
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+}
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`)

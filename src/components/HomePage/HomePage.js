@@ -16,14 +16,14 @@ export default function Homepage() {
     width: "100%"
   }
   useEffect( () => {
-    fetch('http://localhost:3001/')
+    fetch('/api')
       .then(res => res.json())
       .then(data => {
         setNames(data.names)
         setTop4(data.top4)
         console.log('data: ', data.names)
       })
-      .then(setTimeout(() => setIsLoading(false), 1000))
+      .then(setTimeout(() => setIsLoading(false), 7000))
   }, [])
 
   return  isLoading? <LoadingPage />: (
