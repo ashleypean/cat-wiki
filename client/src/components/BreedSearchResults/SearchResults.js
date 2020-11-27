@@ -1,7 +1,7 @@
 
 import React, {useState, useEffect} from 'react'
 import { Link, useParams } from 'react-router-dom'
-import Logo from '../../img/logo.svg'
+import {ReactComponent as Logo} from '../../img/logo.svg'
 import BreedSummary from './BreedSummary/BreedSummary.jsx'
 import OtherPhotos from './OtherPhotos/OtherPhotos.jsx'
 import LoadingPage from '../Loading/Loading.jsx'
@@ -30,7 +30,7 @@ export default function SearchResults() {
   })
 
   useEffect( () => {
-    fetch(`/breeds/search/${breedName}`)
+    fetch(`/api/breeds/search/${breedName}`)
       .then(res => res.json())
       .then(data => {
         setBreedInfo(data)
@@ -41,7 +41,7 @@ export default function SearchResults() {
         const permPhotos = data.photos
         setPhotos(permPhotos)
       })
-      .then(setTimeout( () => {setIsLoading(false)}, 2000))
+      .then(setTimeout( () => {setIsLoading(false)}, 4000))
       .catch((err) => {
         console.log(err)
         setIsError(true)
@@ -55,7 +55,7 @@ export default function SearchResults() {
   return isLoading? <LoadingPage />: isError? <NotFound />: (
     <div className="search-results">
       <Link to="/">
-        <img src={Logo} alt="Cat Wiki Logo. Click to go back to home page" />
+        <Logo />
       </Link>
       <BreedSummary breedInfo={breedInfo} breedName={breedName}/>
       <OtherPhotos photos={photos} breedName={breedName}/>

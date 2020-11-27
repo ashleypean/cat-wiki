@@ -1,11 +1,10 @@
 const express = require('express')
 const axios = require('axios')
-const path = require('path')
 require('dotenv').config()
+const path = require('path')
+const port = process.env.PORT || 5000
 
 const app = express()
-
-const PORT = 3001
 
 //Default AXIOS settings - Alllow cors and enable API key
 app.use(function(req, res, next) {
@@ -17,7 +16,7 @@ app.use(function(req, res, next) {
 
 
 //TOP 10 PAGE
-app.get('/top-10', async(req, res) => {
+app.get('/api/top-10', async(req, res) => {
   try {
     const fetchString = 'https://api.thecatapi.com/v1/images/search?limit=1&breed_id='
     const ids = ['beng', 'sava', 'norw', 'srex', 'jbob', 'rblu', 'soma','amis', 'mcoo', 'snow']
@@ -47,7 +46,7 @@ app.get('/top-10', async(req, res) => {
 
 //BREED SEARCH RESULTS
 //Get breed info for specific cat that was searched
-app.get('/breeds/search/:name', async(req, res, next) => {
+app.get('/api/breeds/search/:name', async(req, res, next) => {
   try {   
     //Parse the url to get the breedname
     const breedName = req.params.name
@@ -139,17 +138,17 @@ async function(req, res) {
   res.status(200).send({top4, names})
 })
 
-if(process.env.NODE_ENV === 'production') {
-  //Set static folder 
-  app.use(express.static('client/build'))
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+//Server static assets if in production 
+if(process.env.NODE_ENV === 'production') {  
+  //Set static folder 
+  app.use(express.static('client/build'));  
+  app.get('*', (req, res) => {    
+    res.sendFile(path.resolve(__dirname , 'client', 'build', 'index.html'));  
   })
 }
 
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`)
-})
 
-// module.exports = app
+app.listen(process.env.PORT || port, () => {
+  console.log(`Listening on port ${port}`)
+})
