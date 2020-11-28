@@ -2,7 +2,7 @@
 
 This app was created as a solution entry for [DevChallenges](http://devchallenges.io/) using React for the frontend and Node and ExpressJS for the backend. 
 
-[Live Demo](https://cat-wikis.herokuapp.com/)
+# [Live Demo](https://cat-wikis.herokuapp.com/)
 
 ## Challenge Prompt
 
