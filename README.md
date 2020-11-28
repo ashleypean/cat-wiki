@@ -23,6 +23,8 @@ Bad queries or invalid URLs get handled and redirected to a 404 Not Found page
 
 ![Bad Search for a cat breed that doesn't exist"https://cat-wikis.herokuapp.com/breeds/search/Bengalkj;askdf"](assets/bad-query.png)
 
+![404 Not Found Page](assets/404.png)
+
 2. Loading Page 
 
 While the data is being fetched from the server and transferred to the front-end, the user will be blocked from seeing the webpage and will instead see an animation. 
