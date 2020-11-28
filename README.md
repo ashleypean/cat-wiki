@@ -2,7 +2,7 @@
 
 This app was created as a solution entry for [DevChallenges](http://devchallenges.io/) using React for the frontend and Node and ExpressJS for the backend. 
 
-# Challenge Prompt
+## Challenge Prompt
 
 - User story: I can search for cat breeds and select a breed of my choice
 - User story: I can see the most popular searched cat breeds summary on the homepage
